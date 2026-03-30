@@ -8,18 +8,22 @@ Built with: FastAPI + SQLAlchemy + PostgreSQL + httpx
 1. Create and activate a virtual environment
 
    Mac / Linux:
-     python -m venv venv
-     source venv/bin/activate
+  python -m venv .venv
+  source .venv/bin/activate
 
    Windows:
-     python -m venv venv
-     venv\Scripts\activate
+  python -m venv .venv
+  .venv\Scripts\activate
 
 2. Install dependencies
-     pip install -r requirements.txt
+  pip install -r requirements.txt
 
-3. Create your .env file
-  Ill be providing what to put in the .env file 
+3. Create your config file
+  Copy the example config so secrets stay out of GitHub:
+    cp config.example.py config.py
+
+4. Create your .env file
+  Ill be providing what to put in the .env file
 
 ## Running the ETL
 

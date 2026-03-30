@@ -5,10 +5,6 @@
 #
 # SQLAlchemy ORM lets you work with database rows as Python objects instead of
 # writing raw SQL everywhere. Each class below = one table in the database.
-#
-# IMPORTANT: If you already ran the C# project, these tables already exist.
-# SQLAlchemy's create_all() uses "IF NOT EXISTS" so it will skip creation
-# and just connect to your existing tables - your data is safe.
 
 from sqlalchemy import (
     create_engine,

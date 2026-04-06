@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
     # SAM.gov API settings
-    sam_api_key: str = "YOUR_API_KEY_HERE"
+    sam_api_key: str = "SAM-2376a4f0-e551-42af-8e30-12b464333359"
     sam_api_base_url: str = "https://api.sam.gov/opportunities/v2/search"
     sam_fetch_limit: int = 25
 

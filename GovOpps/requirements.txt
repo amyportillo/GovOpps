@@ -1,23 +1,39 @@
-# Web API
+# Web framework — builds the REST API (api.py) and the HTML dashboard (dashboard.py).
+# You define Python functions and decorate them with @app.get("/path") to turn them
+# into HTTP endpoints. FastAPI handles routing, input validation, and auto-generates
 fastapi==0.111.0
+
+# ASGI server — the thing that actually runs your FastAPI app on a port and listens
+# for incoming HTTP requests. When you run `python run.py api`, it calls uvicorn under
+# the hood. Without uvicorn, FastAPI has no way to receive requests.
+# [standard] installs extras like websocket support and a faster event loop.
 uvicorn[standard]==0.29.0
 
-# Dashboard
-streamlit==1.35.0
-
-# Database
+# PostgreSQL driver — the low-level bridge between Python and your PostgreSQL database.
+# SQLAlchemy uses this behind the scenes to send SQL to Postgres and get results back.
+# You never call psycopg2 directly — SQLAlchemy does it for you.
+# -binary means it ships with C libraries included, so you don't need to install them separately.
 psycopg2-binary==2.9.9
+
+# ORM (Object-Relational Mapper) — lets you define database tables as Python classes
+# (in database.py) and query them with Python instead of raw SQL.
+# e.g. db.query(Contract).all() instead of SELECT * FROM contract.
+# Also manages the connection pool, sessions, transactions, and migrations.
 sqlalchemy==2.0.30
 
-# HTTP requests (ETL)
+# HTTP client — used in etl.py to make the outbound GET request to the SAM.gov API.
+# Similar to the popular `requests` library but more modern: supports async,
+# has better timeout handling, and cleaner response objects (.is_success, .json(), etc.)
 httpx==0.27.0
 
-# Data validation
+# Data validation library — used in schemas.py to define the exact shape of API responses.
+# When FastAPI returns data, Pydantic checks every field matches the declared type.
+# If something is wrong (e.g. a string where an int is expected) it raises an error
+# before bad data ever reaches the user. Also powers the /docs page type information.
 pydantic==2.7.1
+
+# Extension of Pydantic for app settings — used in config.py.
+# Automatically reads your .env file and maps each line to a typed Python attribute
+# on the Settings class. e.g. DB_PASSWORD=secret in .env becomes settings.db_password in code.
+# Handles type conversion, defaults, and validation of your configuration automatically.
 pydantic-settings==2.2.1
-
-# Data manipulation (used by dashboard)
-pandas==2.2.2
-
-# Environment variables
-python-dotenv==1.0.1

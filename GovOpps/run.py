@@ -3,11 +3,18 @@
 # Every command you need is here — no digging through other files.
 #
 # Usage:
-#   python run.py etl          <- fetch contracts from SAM.gov and load into the DB
-#   python run.py api          <- start the FastAPI server (http://localhost:8000/docs)
-#   python run.py dashboard    <- open the Streamlit dashboard (http://localhost:8501)
+#   python run.py etl          fetch contracts from SAM.gov and load into the DB
+#   python run.py api          start the FastAPI server (http://localhost:8000/docs)
+#   python run.py dashboard    open the Streamlit dashboard (http://localhost:8501)
 
+# sys gives you access to the Python interpreter itself.
+# Used here for sys.argv (read what the user typed on the command line)
+# and sys.exit() (stop the program with a success/error code).
 import sys
+
+# subprocess lets you run a terminal command from inside Python code —
+# as if you typed it yourself in the shell.
+# Used here to launch uvicorn (the web server) as a separate process.
 import subprocess
 
 

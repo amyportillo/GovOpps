@@ -3,7 +3,6 @@
 # Returns JSON — this is the machine-readable side of the project.
 #
 # Start with:  python run.py api
-# Then visit:  http://localhost:8000/docs  for interactive documentation
 
 from datetime import datetime, timezone
 from typing import Optional

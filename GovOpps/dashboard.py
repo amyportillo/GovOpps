@@ -2,7 +2,7 @@
 # FastAPI app that serves the visual dashboard on port 8501.
 # Unlike api.py which returns JSON, every route here returns a full HTML page.
 #
-# Start with: python run.py dashboard  →  open http://localhost:8501
+# Start with: python run.py dashboard  open http://localhost:8501
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse  # tells FastAPI to send HTML instead of JSON

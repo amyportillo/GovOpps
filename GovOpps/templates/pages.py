@@ -15,7 +15,7 @@ def trend_chart(daily: list) -> str:
     max_count = max(d["count"] for d in daily) or 1  # avoid division by zero
     bars = ""
     labels = ""
-
+    # enumerate loops through a list and gives you two things at once — the position number AND the item.
     for i, d in enumerate(daily):
         # Scale bar height between 4px (minimum so it's always visible) and 80px
         height = max(4, int(d["count"] / max_count * 80))

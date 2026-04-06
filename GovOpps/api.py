@@ -7,7 +7,8 @@
 
 from datetime import datetime, timezone
 from typing import Optional
-
+# depends is a FastAPI feature that allows you to declare dependencies for your path operation functions.
+# query defines and validates URL parameters
 from fastapi import FastAPI, Depends, Query
 from sqlalchemy import func
 from sqlalchemy.orm import Session

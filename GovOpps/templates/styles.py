@@ -1,3 +1,23 @@
+# styles.py
+# All CSS for the dashboard lives here as a single Python string.
+# It gets injected directly into the <style> tag of every HTML page by components.layout().
+#
+# Why inline instead of a separate .css file?
+# Because FastAPI needs extra setup to serve static files. Inlining keeps things simple —
+# no file server config needed, just one string.
+#
+# Structure:
+#   :root         — CSS variables (colors, fonts) used everywhere
+#   .layout       — the two-column grid (sidebar | main)
+#   .sidebar      — left nav panel
+#   .topbar       — top bar with page title and pipeline badge
+#   .metrics      — the 4 stat boxes on the dashboard
+#   .card/.grid2  — two-column card layout
+#   tables        — shared table styles with hover and search bar
+#   .badge        — small colored status labels (green/red/amber/gray)
+#   .trend-card   — the daily bar chart
+#   .vendor-grid  — agency cards on the vendors page
+
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 :root{

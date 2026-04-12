@@ -1,12 +1,6 @@
 # config.example.py
 # This is a safe-to-share template of config.py.
 # It shows every setting the project uses, with placeholder values instead of real ones.
-#
-# HOW TO USE:
-#   1. Copy .env.example to .env
-#   2. Fill in your real API key and database password in .env
-#   3. You do NOT need to touch config.py itself — it reads from .env automatically
-#
 # You should never need to edit config.py directly.
 # All real values (passwords, API keys) go in .env — never in this file.
 
